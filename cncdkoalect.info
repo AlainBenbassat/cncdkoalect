@@ -5,3 +5,8 @@ description = sync with koalect
 package = CNCD
 core = 7.x
 
+files[] = includes/cncdkoalect_action.inc
+files[] = includes/cncdkoalect_payment.inc
+files[] = includes/cncdkoalect_contribution.inc
+
+
