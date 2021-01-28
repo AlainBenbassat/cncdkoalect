@@ -15,13 +15,27 @@ function cncdkoalect_menu() {
 }
 
 function cncdkoalect_process() {
-  $html = 'hello';
+  header('Content-Type: application/json');
+
+  $data = cncdkoalect_getBlankReturnObject();
 
   try {
+    $data->status_message = "test message";
   }
   catch (Exception $e) {
-    $html = $e->getMessage();
+    $data->status = $e->getCode();
+    $data->status_message = $e->getMessage();
   }
 
-  return $html;
+  return json_encode($data);
+}
+
+function cncdkoalect_getBlankReturnObject() {
+  $o = new stdClass();
+
+  $o->status = 200;
+  $o->status_message = '';
+  $o->orders = [];
+
+  return $o;
 }
