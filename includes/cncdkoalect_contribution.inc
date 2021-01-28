@@ -31,19 +31,19 @@ class CncdKoalectContribution {
 
   private function amountCompare($foundAmount, $expectedAmount) {
     if ($foundAmount == 0){
-      return 'en attente';
+      return 'En attente';
     }
     elseif ($foundAmount == $expectedAmount) {
-      return 'paiement validé';
+      return 'Validé';
     }
     elseif ($foundAmount < $expectedAmount) {
-      return 'paiement incomplet';
+      return 'Incomplet';
     }
     elseif ($foundAmount > $expectedAmount) {
-      return 'erreur';
+      return 'A vérifier';
     }
     else {
-      return 'erreur';
+      return 'Erreur';
     }
   }
 }

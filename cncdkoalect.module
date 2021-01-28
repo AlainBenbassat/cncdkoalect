@@ -24,7 +24,7 @@ function cncdkoalect_process() {
       $body = cncdkoalect_getRequestBody();
       $expectedToken = cncdkoalect_getExpectedToken();
 
-      $data->orders = CncdKoalectAction::execute($action, $body, $expectedToken);
+      $data->stocks = CncdKoalectAction::execute($action, $body, $expectedToken);
     }
     catch (Exception $e) {
       $data->status = $e->getCode();
@@ -41,7 +41,7 @@ function cncdkoalect_getBlankReturnObject() {
 
   $o->status = 200;
   $o->status_message = '';
-  $o->orders = [];
+  $o->stocks = [];
 
   return $o;
 }
