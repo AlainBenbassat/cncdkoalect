@@ -15,19 +15,21 @@ function cncdkoalect_menu() {
 }
 
 function cncdkoalect_process() {
-  header('Content-Type: application/json');
+  if (current_path() == 'cncdkoalect') {
+    header('Content-Type: application/json');
+    $data = cncdkoalect_getBlankReturnObject();
 
-  $data = cncdkoalect_getBlankReturnObject();
+    try {
+      $data->status_message = "test message";
+    }
+    catch (Exception $e) {
+      $data->status = $e->getCode();
+      $data->status_message = $e->getMessage();
+    }
 
-  try {
-    $data->status_message = "test message";
+    echo json_encode($data);
+    drupal_exit();
   }
-  catch (Exception $e) {
-    $data->status = $e->getCode();
-    $data->status_message = $e->getMessage();
-  }
-
-  return json_encode($data);
 }
 
 function cncdkoalect_getBlankReturnObject() {
