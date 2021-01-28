@@ -1,0 +1,7 @@
+; $Id$
+
+name = cncdkoalect
+description = sync with koalect
+package = CNCD
+core = 7.x
+

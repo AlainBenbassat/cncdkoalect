@@ -1,0 +1,27 @@
+<?php
+
+function cncdkoalect_menu() {
+  $items = [];
+
+  $items['cncdkoalect'] = [
+    'title'            => 'CNCD Koalect',
+    'page callback'    => 'cncdkoalect_process',
+    'access arguments' => ['access content'],
+    'description' => t('CNCD KOALECT'),
+    'type' => MENU_CALLBACK,
+  ];
+
+  return $items;
+}
+
+function cncdkoalect_process() {
+  $html = 'hello';
+
+  try {
+  }
+  catch (Exception $e) {
+    $html = $e->getMessage();
+  }
+
+  return $html;
+}
