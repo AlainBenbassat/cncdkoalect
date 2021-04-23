@@ -7,7 +7,7 @@ class CncdKoalectContribution {
 
   public function getStatus($externalId, $source, $amount) {
     $total = $this->findBySource($source);
-    if (!$total) {
+    if ($total == 0) {
       $total = $this->findBySourceWithTextAfter($source);
     }
 
